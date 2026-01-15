@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Madni Door & Aluminium | Architectural Fabrication</title>
+    <title>Madni Door & Aluminium | Nagpur</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* --- 🌑 TITANIUM DARK THEME --- */
+        /* --- THEME SETTINGS --- */
         :root {
-            --bg: #050505;          /* Pure Black */
-            --surface: #121212;     /* Dark Grey */
-            --gold: #D4AF37;        /* Metallic Gold */
+            --bg: #050505;
+            --surface: #121212;
+            --gold: #D4AF37;
             --text: #ffffff;
             --text-muted: #a3a3a3;
             --border: rgba(255, 255, 255, 0.1);
@@ -22,7 +22,7 @@
         body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
         html { scroll-behavior: smooth; }
 
-        /* --- ✨ ANIMATIONS --- */
+        /* --- ANIMATIONS --- */
         .reveal { opacity: 0; transform: translateY(30px); transition: 1s all ease; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
@@ -45,10 +45,13 @@
         /* --- HERO SECTION --- */
         .hero {
             height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), 
-                        url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80');
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), 
+                        url('main.jpg');
             background-size: cover; background-position: center; background-attachment: fixed; padding: 20px;
         }
+        /* Fallback */
+        .hero { background-color: #1a1a1a; }
+
         .hero h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; text-transform: uppercase; letter-spacing: -1px; }
         .hero h1 span { color: var(--gold); }
         .hero p { font-size: 1.2rem; color: #d1d5db; max-width: 700px; margin: 0 auto 40px; }
@@ -68,32 +71,23 @@
         .stat p { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
 
         /* --- SECTIONS --- */
-        .section { padding: 100px 5%; max-width: 1400px; margin: 0 auto; }
+        .section { padding: 80px 5%; max-width: 1400px; margin: 0 auto; }
         .sec-header { text-align: center; margin-bottom: 60px; }
         .sec-sub { color: var(--gold); text-transform: uppercase; letter-spacing: 2px; font-size: 14px; font-weight: 700; }
         .sec-title { font-size: 2.5rem; margin-top: 10px; font-weight: 700; }
 
-        /* --- SERVICES (3D CARDS) --- */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .service-card {
-            background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border);
-            padding: 40px; border-radius: 20px; transition: 0.4s; position: relative; overflow: hidden;
+        /* --- VIDEO SECTION --- */
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .video-card {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: 15px; overflow: hidden; position: relative;
         }
-        .service-card:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.05); border-color: var(--gold); }
-        .s-icon { font-size: 50px; color: var(--gold); margin-bottom: 25px; }
-        .s-title { font-size: 1.5rem; margin-bottom: 15px; font-weight: 700; }
-        .s-desc { color: var(--text-muted); line-height: 1.7; }
+        .video-card video { width: 100%; height: 460px; object-fit: cover; display: block; }
+        .v-caption { padding: 15px; text-align: center; font-weight: 600; color: var(--gold); }
 
-        /* --- WHY CHOOSE US --- */
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .feature-item { display: flex; gap: 20px; align-items: flex-start; }
-        .f-icon { width: 50px; height: 50px; background: var(--gold); color: #000; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
-        .f-text h4 { font-size: 1.2rem; margin-bottom: 5px; }
-        .f-text p { font-size: 0.9rem; color: var(--text-muted); }
-
-        /* --- GALLERY --- */
-        .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-        .g-item { height: 250px; overflow: hidden; border-radius: 15px; position: relative; cursor: pointer; }
+        /* --- GALLERY GRID --- */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .g-item { height: 500px; overflow: hidden; border-radius: 15px; position: relative; cursor: pointer; border: 1px solid #333; }
         .g-img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
         .g-item:hover .g-img { transform: scale(1.1); }
         .g-overlay {
@@ -101,8 +95,9 @@
             background: linear-gradient(to top, black, transparent); opacity: 0; transition: 0.3s;
         }
         .g-item:hover .g-overlay { opacity: 1; }
+        .g-overlay h4 { color: var(--gold); font-size: 1.2rem; margin-bottom: 5px; }
 
-        /* --- 📍 DARK MAP SECTION --- */
+        /* --- CONTACT & MAP --- */
         .map-wrapper {
             margin-top: 50px; border-radius: 20px; overflow: hidden; 
             border: 1px solid var(--gold); height: 350px;
@@ -110,17 +105,15 @@
         }
         iframe { width: 100%; height: 100%; border: none; filter: invert(90%) hue-rotate(180deg) contrast(1.2); }
 
-        /* --- CONTACT --- */
         .contact-section {
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80');
+            background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.8)), url('main.jpg');
             background-size: cover; background-attachment: fixed; text-align: center; padding: 100px 20px;
         }
         
-        /* FLOATING WHATSAPP */
         .float-wa {
             position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white;
             width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 35px; box-shadow: 0 0 20px rgba(37, 211, 102, 0.5); z-index: 1000; transition: 0.3s;
+            font-size: 35px; box-shadow: 0 0 20px rgba(37, 211, 102, 0.5); z-index: 1000; transition: 0.3s; text-decoration: none;
         }
         .float-wa:hover { transform: scale(1.1); }
 
@@ -129,7 +122,6 @@
         @media(max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .stats-strip { grid-template-columns: 1fr 1fr; gap: 40px; }
-            .gallery-grid { grid-template-columns: 1fr; }
             .hero-btns { flex-direction: column; }
         }
     </style>
@@ -143,11 +135,11 @@
 
     <section class="hero">
         <div class="reveal">
-            <h1>Precision in Every <br><span>Aluminium Detail</span></h1>
-            <p>Nagpur's Premium Fabrication Experts. We craft durable Doors, Windows, and Partitions that define luxury.</p>
+            <h1>Expert Aluminium <br><span>Work in Nagpur</span></h1>
+            <p>We specialize in Office Partitions, Sliding Windows, and Premium Doors. High quality, Durable, and Affordable.</p>
             <div class="hero-btns">
-                <a href="#products" class="btn-gold">View Products</a>
-                <a href="#contact" class="btn-outline">Get Quote</a>
+                <a href="#gallery" class="btn-gold">View Photos</a>
+                <a href="#video-tour" class="btn-outline">Watch Video</a>
             </div>
         </div>
     </section>
@@ -155,64 +147,165 @@
     <div class="stats-strip reveal">
         <div class="stat"><h2>10+</h2><p>Years Experience</p></div>
         <div class="stat"><h2>500+</h2><p>Projects Done</p></div>
-        <div class="stat"><h2>50+</h2><p>Corporate Clients</p></div>
-        <div class="stat"><h2>100%</h2><p>Quality Promise</p></div>
+        <div class="stat"><h2>Best</h2><p>Material Used</p></div>
+        <div class="stat"><h2>100%</h2><p>Satisfaction</p></div>
     </div>
 
-    <section class="section reveal">
+    <section id="video-tour" class="section reveal">
         <div class="sec-header">
-            <span class="sec-sub">Why Choose Us</span>
-            <h2 class="sec-title">The Madni Standard</h2>
+            <span class="sec-sub">Live Work</span>
+            <h2 class="sec-title">Project Video Tour</h2>
         </div>
-        <div class="features-grid">
-            <div class="feature-item">
-                <div class="f-icon"><i class="fas fa-medal"></i></div>
-                <div class="f-text"><h4>Premium Material</h4><p>We use only Jindal & heavy-gauge aluminium sections.</p></div>
+        <div class="video-grid">
+            <div class="video-card">
+                <video controls loop muted poster="thumb1.jpg">
+                    <source src="vid3.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="v-caption">Industrial Office Cabin Setup</div>
             </div>
-            <div class="feature-item">
-                <div class="f-icon"><i class="fas fa-clock"></i></div>
-                <div class="f-text"><h4>On-Time Delivery</h4><p>We respect your time. Project completion within deadline.</p></div>
+
+            <div class="video-card">
+                <video controls loop muted poster="thumb2.jpg">
+                    <source src="vid4.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="v-caption">Kitchen Sliding Cabinet</div>
             </div>
-            <div class="feature-item">
-                <div class="f-icon"><i class="fas fa-tools"></i></div>
-                <div class="f-text"><h4>Expert Finishing</h4><p>No gaps, no rattling. Perfect fitting guaranteed.</p></div>
+
+            <div class="video-card">
+                <video controls loop muted poster="thumb3.jpg">
+                    <source src="vid1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="v-caption">Office Entrance & Partition</div>
+            </div>
+
+            <div class="video-card">
+                <video controls loop muted poster="thumb4.jpg">
+                    <source src="vid2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="v-caption">Premium Sliding Net Door</div>
             </div>
         </div>
     </section>
 
-    <section id="products" class="section reveal">
+    <section id="gallery" class="section reveal">
         <div class="sec-header">
-            <span class="sec-sub">Our Expertise</span>
-            <h2 class="sec-title">Crafted for Excellence</h2>
-        </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <i class="fas fa-door-open s-icon"></i>
-                <h3 class="s-title">Luxury Entrance Doors</h3>
-                <p class="s-desc">Heavy-duty aluminium doors with toughened glass and premium handles for Shops & Homes.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-border-all s-icon"></i>
-                <h3 class="s-title">Soundproof Windows</h3>
-                <p class="s-desc">3-Track sliding windows with mosquito mesh. Noise reduction and dust-proof technology.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-building s-icon"></i>
-                <h3 class="s-title">Corporate Partitions</h3>
-                <p class="s-desc">Sleek glass and aluminium partitions for Offices, Showrooms, and Commercial spaces.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section reveal">
-        <div class="sec-header">
-            <span class="sec-sub">Portfolio</span>
-            <h2 class="sec-title">Recent Masterpieces</h2>
+            <span class="sec-sub">Our Portfolio</span>
+            <h2 class="sec-title">Recent Work Gallery</h2>
         </div>
         <div class="gallery-grid">
-            <div class="g-item"><img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="g-img"><div class="g-overlay"><h4>Office Partition</h4></div></div>
-            <div class="g-item"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="g-img"><div class="g-overlay"><h4>Sliding Window</h4></div></div>
-            <div class="g-item"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="g-img"><div class="g-overlay"><h4>Entrance Door</h4></div></div>
+            
+            <div class="g-item">
+                <img src="img8.jpg" class="g-img" alt="Glass Building">
+                <div class="g-overlay">
+                    <h4>Structural Glass Glazing</h4>
+                    <p>Modern Commercial Exterior</p>
+                </div>
+            </div>
+
+            <div class="g-item">
+                <img src="img9.jpg" class="g-img" alt="Modular Kitchen">
+                <div class="g-overlay">
+                    <h4>Modular Kitchen Profile</h4>
+                    <p>Clean White Finish</p>
+                </div>
+            </div>
+
+            <div class="g-item">
+                <img src="img10.jpg" class="g-img" alt="Laser Design">
+                <div class="g-overlay">
+                    <h4>Laser Cut Elevation</h4>
+                    <p>Artistic Building Front</p>
+                </div>
+            </div>
+
+            <div class="g-item">
+                <img src="img11.jpg" class="g-img" alt="Glass Door">
+                <div class="g-overlay">
+                    <h4>Toughened Glass Door</h4>
+                    <p>Custom Etched Logo Design</p>
+                </div>
+            </div>
+
+             <div class="g-item">
+                <img src="img12.jpg" class="g-img" alt="Premium Door">
+                <div class="g-overlay">
+                    <h4>Premium Brown Door</h4>
+                    <p>Wood Finish Aluminium</p>
+                </div>
+            </div>
+
+             <div class="g-item">
+                <img src="img13.jpg" class="g-img" alt="Wide Window">
+                <div class="g-overlay">
+                    <h4>Large Sliding Window</h4>
+                    <p>Full Wall Coverage</p>
+                </div>
+            </div>
+
+            <div class="g-item">
+                <img src="img1.jpg" class="g-img" alt="Sliding Window">
+                <div class="g-overlay">
+                    <h4>3-Track Sliding Window</h4>
+                    <p>Heavy duty white powder coating</p>
+                </div>
+            </div>
+
+            <div class="g-item">
+                <img src="img2.jpg" class="g-img" alt="Decorative Door">
+                <div class="g-overlay">
+                    <h4>Decorative Glass Work</h4>
+                    <p>Premium rose design panel</p>
+                </div>
+            </div>
+
+            <div class="g-item">
+                <img src="img3.jpg" class="g-img" alt="Aluminium Door">
+                <div class="g-overlay">
+                    <h4>Solid Aluminium Door</h4>
+                    <p>Waterproof & Durable</p>
+                </div>
+            </div>
+
+            <div class="g-item">
+                <img src="img4.jpg" class="g-img" alt="Storage Unit">
+                <div class="g-overlay">
+                    <h4>Corner Fixed Glass Window</h4>
+                    <p>Glass window</p>
+                </div>
+            </div>
+
+            <div class="g-item">
+                <img src="img5.jpg" class="g-img" alt="Partition">
+                <div class="g-overlay">
+                    <h4>Aluminium Fixed Window</h4>
+                    <p>Fixed Window</p>
+                </div>
+            </div>
+
+             <div class="g-item">
+                <img src="img7.jpg" class="g-img" alt="Partition Work">
+                <div class="g-overlay">
+                    <h4>Commercial Partition</h4>
+                    <p>Custom size fabrication</p>
+                </div>
+            </div>
+
+
+
+
+  <div class="g-item">
+                <img src="img14.jpg" class="g-img" alt="Partition Work">
+                <div class="g-overlay">
+                    <h4>My Visiting Card</h4>
+                    <p>Madani Door Aluminum Work</p>
+                </div>
+            </div>
+
+
         </div>
     </section>
 
@@ -223,43 +316,25 @@
             <p style="color: var(--text-muted);">Naka no. 2, Khasala Road, inside Pal Medical, Nagpur</p>
         </div>
         <div class="map-wrapper">
-  
-                
-                
-                
-                
-                <iframe
-  width="600"
-  height="450"
-  style="border:0;"
-  loading="lazy"
-  allowfullscreen
-  referrerpolicy="no-referrer-when-downgrade"
-  src="https://maps.google.com/maps?q=21.2008411,79.13516&z=15&output=embed">
-</iframe>
-                
-                
-                
-                
-            </iframe>
+            <iframe src="https://maps.google.com/maps?q=Madni+Doors+and+Aluminium+windows+Nagpur&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+            allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
 
     <section id="contact" class="contact-section reveal">
-        <h2 style="font-size: 3rem; margin-bottom: 20px;">Ready to Transform Your Space?</h2>
-        <p style="font-size: 1.2rem; margin-bottom: 40px; color: #e5e7eb;">Get a Free Consultation & Quote today.</p>
+        <h2 style="font-size: 3rem; margin-bottom: 20px;">Ready to Start?</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 40px; color: #e5e7eb;">Contact us for the best rates in Nagpur.</p>
         <a href="tel:9325994552" class="btn-gold" style="font-size: 20px; padding: 15px 40px;"><i class="fas fa-phone-alt"></i> CALL: 9325994552</a>
     </section>
 
     <a href="https://wa.me/919325994552" class="float-wa"><i class="fab fa-whatsapp"></i></a>
 
     <footer>
-        <p>&copy; 2026 Madni Door & Aluminium Works. All Rights Reserved.</p>
-        <p style="margin-top: 10px; font-size: 12px; opacity: 0.5;">Premium Design by Krish</p>
+        <p>© 2026 Madni Door & Aluminium Works. All Rights Reserved.</p>
+        <p style="margin-top: 10px; font-size: 12px; opacity: 0.5;">Developed by Krish</p>
     </footer>
 
     <script>
-        // Scroll Animation Script
         window.addEventListener('scroll', function() {
             var reveals = document.querySelectorAll('.reveal');
             for (var i = 0; i < reveals.length; i++) {
@@ -271,7 +346,6 @@
                 }
             }
         });
-        // Trigger once on load
         window.dispatchEvent(new Event('scroll'));
     </script>
 
