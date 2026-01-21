@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madni Door & Aluminium | Nagpur</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- THEME SETTINGS --- */
+        :root {
+            --bg: #050505;
+            --surface: #121212;
+            --gold: #D4AF37;
+            --text: #ffffff;
+            --text-muted: #a3a3a3;
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+        html { scroll-behavior: smooth; }
+
+        /* --- ANIMATIONS --- */
+        .reveal { opacity: 0; transform: translateY(30px); transition: 1s all ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* --- HEADER --- */
+        header {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            background: rgba(5, 5, 5, 0.8); backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border); padding: 15px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { font-size: 24px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--text); }
+        .logo span { color: var(--gold); }
+        .btn-gold {
+            background: linear-gradient(45deg, #bf953f, #fcf6ba, #bf953f);
+            color: #000; padding: 10px 25px; border-radius: 50px; font-weight: 700;
+            text-decoration: none; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); transition: 0.3s;
+        }
+        .btn-gold:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), 
+                        url('main.jpg');
+            background-size: cover; background-position: center; background-attachment: fixed; padding: 20px;
+        }
+        .hero { background-color: #1a1a1a; } /* Fallback */
+
+        .hero h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; text-transform: uppercase; letter-spacing: -1px; }
+        .hero h1 span { color: var(--gold); }
+        .hero p { font-size: 1.2rem; color: #d1d5db; max-width: 700px; margin: 0 auto 40px; }
+        .hero-btns { display: flex; gap: 20px; justify-content: center; }
+        .btn-outline { 
+            border: 1px solid var(--text); color: var(--text); padding: 10px 25px; 
+            border-radius: 50px; text-decoration: none; font-weight: 600; transition: 0.3s; 
+        }
+        .btn-outline:hover { background: var(--text); color: #000; }
+
+        /* --- STATS STRIP --- */
+        .stats-strip {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+            background: var(--surface); padding: 40px 10%; border-bottom: 1px solid var(--border);
+        }
+        .stat h2 { font-size: 2.5rem; color: var(--gold); margin-bottom: 5px; }
+        .stat p { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
+
+        /* --- SLIDERS (ALL SECTIONS) --- */
+        .hpl-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 20px;
+            padding-bottom: 20px;
+            -webkit-overflow-scrolling: touch; 
+        }
+        .hpl-container::-webkit-scrollbar { display: none; } 
+        
+        .hpl-card {
+            flex: 0 0 85%; 
+            max-width: 400px;
+            height: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            scroll-snap-align: center;
+            position: relative;
+            border: 1px solid var(--gold);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            background: #000;
+        }
+        .hpl-card img { width: 100%; height: 100%; object-fit: cover; }
+        
+        /* Video inside card fix */
+        .hpl-card video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .hpl-badge {
+            position: absolute; top: 15px; right: 15px;
+            background: var(--gold); color: #000; font-weight: bold;
+            padding: 5px 15px; border-radius: 20px; font-size: 0.8rem;
+            z-index: 10;
+        }
+        
+        /* GENERAL BADGE STYLE */
+        .chem-badge {
+            position: absolute; top: 15px; right: 15px;
+            background: #fff; color: #000; font-weight: bold;
+            padding: 5px 15px; border-radius: 20px; font-size: 0.8rem;
+            z-index: 10;
+        }
+        
+        .swipe-hint { text-align: center; color: var(--text-muted); margin-top: 10px; font-size: 0.9rem; }
+        .swipe-hint i { margin-left: 5px; animation: slideRight 1.5s infinite; }
+        
+        @keyframes slideRight { 
+            0% { transform: translateX(0); opacity: 1; }
+            100% { transform: translateX(10px); opacity: 0; }
+        }
+
+        @media(min-width: 768px) {
+            .hpl-card { flex: 0 0 350px; } 
+        }
+
+        /* --- SECTIONS --- */
+        .section { padding: 80px 5%; max-width: 1400px; margin: 0 auto; }
+        .sec-header { text-align: center; margin-bottom: 60px; }
+        .sec-sub { color: var(--gold); text-transform: uppercase; letter-spacing: 2px; font-size: 14px; font-weight: 700; }
+        .sec-title { font-size: 2.5rem; margin-top: 10px; font-weight: 700; }
+
+        /* --- CONTACT & MAP --- */
+        .map-wrapper {
+            margin-top: 50px; border-radius: 20px; overflow: hidden; 
+            border: 1px solid var(--gold); height: 350px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+        iframe { width: 100%; height: 100%; border: none; filter: invert(90%) hue-rotate(180deg) contrast(1.2); }
+
+        .contact-section {
+            background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.8)), url('main.jpg');
+            background-size: cover; background-attachment: fixed; text-align: center; padding: 100px 20px;
+        }
+        
+        .float-wa {
+            position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white;
+            width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 35px; box-shadow: 0 0 20px rgba(37, 211, 102, 0.5); z-index: 1000; transition: 0.3s; text-decoration: none;
+        }
+        .float-wa:hover { transform: scale(1.1); }
+
+        footer { background: #000; padding: 50px 5%; border-top: 1px solid var(--border); color: var(--text-muted); text-align: center; font-size: 14px; }
+
+        @media(max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .stats-strip { grid-template-columns: 1fr 1fr; gap: 40px; }
+            .hero-btns { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Madni <span>Door</span></div>
+        <a href="tel:9325994552" class="btn-gold"><i class="fas fa-phone-alt"></i> Call Now</a>
+    </header>
+
+    <section class="hero">
+        <div class="reveal">
+            <h1>Expert Aluminium <br><span>Work in Nagpur</span></h1>
+            <p>We specialize in Premium Doors. High quality, Durable, and Affordable.</p>
+            <div class="hero-btns">
+                <a href="#doors" class="btn-gold">View Door Designs</a>
+                <a href="#contact" class="btn-outline">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="stats-strip reveal">
+        <div class="stat"><h2>10+</h2><p>Years Experience</p></div>
+        <div class="stat"><h2>500+</h2><p>Projects Done</p></div>
+        <div class="stat"><h2>Best</h2><p>Material Used</p></div>
+        <div class="stat"><h2>100%</h2><p>Satisfaction</p></div>
+    </div>
+
+    <section id="doors" class="section reveal">
+        <div class="sec-header">
+            <span class="sec-sub">Latest Arrival</span>
+            <h2 class="sec-title">Premium HPL Doors</h2>
+            <p style="color: var(--text-muted);">Waterproof, Scratch Resistant & Modern Design</p>
+        </div>
+
+        <div class="hpl-container">
+            <div class="hpl-card">
+                <div class="hpl-badge">New Arrival</div>
+                <img src="hpl1.jpg" alt="HPL Door Design 1">
+            </div>
+            <div class="hpl-card">
+                <div class="hpl-badge">Bestseller</div>
+                <img src="hpl2.jpg" alt="HPL Door Design 2">
+            </div>
+            <div class="hpl-card">
+                <div class="hpl-badge">Premium</div>
+                <img src="hpl3.jpg" alt="HPL Door Design 3">
+            </div>
+            <div class="hpl-card">
+                <div class="hpl-badge">Modern</div>
+                <img src="hpl4.jpg" alt="HPL Door Design 4">
+            </div>
+            <div class="hpl-card">
+                <div class="hpl-badge">Classic</div>
+                <img src="hpl5.jpg" alt="HPL Door Design 5">
+            </div>
+            <div class="hpl-card">
+                <div class="hpl-badge">Custom</div>
+                <img src="hpl6.jpg" alt="HPL Door Design 6">
+            </div>
+        </div>
+        <p class="swipe-hint">Swipe to see more designs <i class="fas fa-arrow-right"></i></p>
+    </section>
+
+    <section id="chemical" class="section reveal" style="background: #0d0d0d;">
+        <div class="sec-header">
+            <span class="sec-sub">Heavy Duty</span>
+            <h2 class="sec-title">Chemical Door Series</h2>
+            <p style="color: var(--text-muted);">Solid, Long-Lasting & Stylish</p>
+        </div>
+
+        <div class="hpl-container">
+            <div class="hpl-card">
+                <div class="hpl-badge" style="background: red; color: white;">Play Video <i class="fas fa-play"></i></div>
+                <video controls loop muted poster="chem_thumb.jpg">
+                    <source src="chem_vid1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Design 1</div>
+                <img src="chem1.jpg" alt="Chemical Door 1">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Design 2</div>
+                <img src="chem2.jpg" alt="Chemical Door 2">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Design 3</div>
+                <img src="chem3.jpg" alt="Chemical Door 3">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Design 4</div>
+                <img src="chem4.jpg" alt="Chemical Door 4">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Design 5</div>
+                <img src="chem5.jpg" alt="Chemical Door 5">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Design 6</div>
+                <img src="chem6.jpg" alt="Chemical Door 6">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Design 7</div>
+                <img src="chem7.jpg" alt="Chemical Door 7">
+            </div>
+        </div>
+        <p class="swipe-hint">Swipe for more Chemical Doors <i class="fas fa-arrow-right"></i></p>
+    </section>
+
+    <section id="pvc" class="section reveal">
+        <div class="sec-header">
+            <span class="sec-sub">Budget Friendly</span>
+            <h2 class="sec-title">PVC Door Collection</h2>
+            <p style="color: var(--text-muted);">Waterproof, Lightweight & Economical</p>
+        </div>
+
+        <div class="hpl-container">
+            <div class="hpl-card">
+                <div class="chem-badge">PVC 1</div>
+                <img src="pvc1.jpg" alt="PVC Door 1">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">PVC 2</div>
+                <img src="pvc2.jpg" alt="PVC Door 2">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">PVC 3</div>
+                <img src="pvc3.jpg" alt="PVC Door 3">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">PVC 4</div>
+                <img src="pvc4.jpg" alt="PVC Door 4">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">PVC 5</div>
+                <img src="pvc5.jpg" alt="PVC Door 5">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">PVC 6</div>
+                <img src="pvc6.jpg" alt="PVC Door 6">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">PVC 7</div>
+                <img src="pvc7.jpg" alt="PVC Door 7">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">PVC 8</div>
+                <img src="pvc8.jpg" alt="PVC Door 8">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">PVC 9</div>
+                <img src="pvc9.jpg" alt="PVC Door 9">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">PVC 10</div>
+                <img src="pvc10.jpg" alt="PVC Door 10">
+            </div>
+        </div>
+        <p class="swipe-hint">Swipe for more PVC Designs <i class="fas fa-arrow-right"></i></p>
+    </section>
+
+    <section id="frp" class="section reveal" style="background: #0d0d0d;">
+        <div class="sec-header">
+            <span class="sec-sub">Durable & Strong</span>
+            <h2 class="sec-title">FRP Door Series</h2>
+            <p style="color: var(--text-muted);">Fiber Reinforced Polymer - Weather & Termite Proof</p>
+        </div>
+
+        <div class="hpl-container">
+            <div class="hpl-card">
+                <div class="chem-badge">FRP 1</div>
+                <img src="frp1.jpg" alt="FRP Door 1">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">FRP 2</div>
+                <img src="frp2.jpg" alt="FRP Door 2">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">FRP 3</div>
+                <img src="frp3.jpg" alt="FRP Door 3">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">FRP 4</div>
+                <img src="frp4.jpg" alt="FRP Door 4">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">FRP 5</div>
+                <img src="frp5.jpg" alt="FRP Door 5">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">FRP 6</div>
+                <img src="frp6.jpg" alt="FRP Door 6">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">FRP 7</div>
+                <img src="frp7.jpg" alt="FRP Door 7">
+            </div>
+        </div>
+        <p class="swipe-hint">Swipe for more FRP Designs <i class="fas fa-arrow-right"></i></p>
+    </section>
+
+    <section id="wpc" class="section reveal">
+        <div class="sec-header">
+            <span class="sec-sub">Waterproof & Termite Proof</span>
+            <h2 class="sec-title">WPC Door Collection</h2>
+            <p style="color: var(--text-muted);">Wood Plastic Composite - The Future of Doors</p>
+        </div>
+
+        <div class="hpl-container">
+            <div class="hpl-card">
+                <div class="chem-badge">WPC 1</div>
+                <img src="wpc1.jpg" alt="WPC Door 1">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">WPC 2</div>
+                <img src="wpc2.jpg" alt="WPC Door 2">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">WPC 3</div>
+                <img src="wpc3.jpg" alt="WPC Door 3">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">WPC 4</div>
+                <img src="wpc4.jpg" alt="WPC Door 4">
+            </div>
+        </div>
+        <p class="swipe-hint">Swipe for more WPC Designs <i class="fas fa-arrow-right"></i></p>
+    </section>
+
+    <section id="mica" class="section reveal" style="background: #0d0d0d;">
+        <div class="sec-header">
+            <span class="sec-sub">Stylish & Modern</span>
+            <h2 class="sec-title">Mica Door Collection</h2>
+            <p style="color: var(--text-muted);">Premium Laminate Finish for Every Room</p>
+        </div>
+
+        <div class="hpl-container">
+            <div class="hpl-card">
+                <div class="chem-badge">Mica 1</div>
+                <img src="mica1.jpg" alt="Mica Door 1">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Mica 2</div>
+                <img src="mica2.jpg" alt="Mica Door 2">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Mica 3</div>
+                <img src="mica3.jpg" alt="Mica Door 3">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Mica 4</div>
+                <img src="mica4.jpg" alt="Mica Door 4">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Mica 5</div>
+                <img src="mica5.jpg" alt="Mica Door 5">
+            </div>
+        </div>
+        <p class="swipe-hint">Swipe for more Mica Designs <i class="fas fa-arrow-right"></i></p>
+    </section>
+
+    <section id="sagwan" class="section reveal">
+        <div class="sec-header">
+            <span class="sec-sub">Royal & Timeless</span>
+            <h2 class="sec-title">Sagwan Teak Wood Doors</h2>
+            <p style="color: var(--text-muted);">100% Original Teak Wood for Lifetime Durability</p>
+        </div>
+
+        <div class="hpl-container">
+            <div class="hpl-card">
+                <div class="chem-badge">Teak 1</div>
+                <img src="sagwan1.jpg" alt="Sagwan Door 1">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Teak 2</div>
+                <img src="sagwan2.jpg" alt="Sagwan Door 2">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Teak 3</div>
+                <img src="sagwan3.jpg" alt="Sagwan Door 3">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Teak 4</div>
+                <img src="sagwan4.jpg" alt="Sagwan Door 4">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Teak 5</div>
+                <img src="sagwan5.jpg" alt="Sagwan Door 5">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Teak 6</div>
+                <img src="sagwan6.jpg" alt="Sagwan Door 6">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Teak 7</div>
+                <img src="sagwan7.jpg" alt="Sagwan Door 7">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Teak 8</div>
+                <img src="sagwan8.jpg" alt="Sagwan Door 8">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Teak 9</div>
+                <img src="sagwan9.jpg" alt="Sagwan Door 9">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Teak 10</div>
+                <img src="sagwan10.jpg" alt="Sagwan Door 10">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Teak 11</div>
+                <img src="sagwan11.jpg" alt="Sagwan Door 11">
+            </div>
+        </div>
+        <p class="swipe-hint">Swipe for more Sagwan Designs <i class="fas fa-arrow-right"></i></p>
+    </section>
+
+    <section class="section reveal">
+        <div class="sec-header">
+            <span class="sec-sub">Locate Us</span>
+            <h2 class="sec-title">Visit Our Workshop</h2>
+            <p style="color: var(--text-muted);">Naka no. 2, Khasala Road, inside Pal Medical, Nagpur</p>
+        </div>
+        <div class="map-wrapper">
+            <iframe src="https://maps.google.com/maps?q=Madni+Doors+and+Aluminium+windows+Nagpur&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+            allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section reveal">
+        <h2 style="font-size: 3rem; margin-bottom: 20px;">Ready to Start?</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 40px; color: #e5e7eb;">Contact us for the best rates in Nagpur.</p>
+        <a href="tel:9325994552" class="btn-gold" style="font-size: 20px; padding: 15px 40px;"><i class="fas fa-phone-alt"></i> CALL: 9325994552</a>
+    </section>
+
+    <a href="https://wa.me/919325994552" class="float-wa"><i class="fab fa-whatsapp"></i></a>
+
+    <footer>
+        <p>© 2026 Madni Door & Aluminium Works. All Rights Reserved.</p>
+        <p style="margin-top: 10px; font-size: 12px; opacity: 0.5;">Developed by Krish</p>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        });
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+
+</body>
+</html>
