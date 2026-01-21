@@ -69,7 +69,7 @@
         .stat h2 { font-size: 2.5rem; color: var(--gold); margin-bottom: 5px; }
         .stat p { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
 
-        /* --- SLIDERS (ALL SECTIONS) --- */
+        /* --- SLIDERS GENERAL --- */
         .hpl-container {
             display: flex;
             overflow-x: auto;
@@ -80,10 +80,11 @@
         }
         .hpl-container::-webkit-scrollbar { display: none; } 
         
+        /* DEFAULT CARD STYLE (USED FOR DOORS, TOWER GLASS & ALMADI) */
         .hpl-card {
             flex: 0 0 85%; 
             max-width: 400px;
-            height: 500px;
+            height: 500px; /* Default Tall Height */
             border-radius: 15px;
             overflow: hidden;
             scroll-snap-align: center;
@@ -93,9 +94,21 @@
             background: #000;
         }
         .hpl-card img { width: 100%; height: 100%; object-fit: cover; }
-        
-        /* Video inside card fix */
         .hpl-card video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        /* --- LANDSCAPE SECTIONS FIX (Windows, Domal, Balcony, Partition, Sajja) --- */
+        #windows .hpl-card, #domal .hpl-card, #balcony .hpl-card, #partition .hpl-card, #sajja .hpl-card {
+            height: 350px; 
+            border: 1px solid #333;
+        }
+        #windows .hpl-card img, #windows .hpl-card video,
+        #domal .hpl-card img, #domal .hpl-card video,
+        #balcony .hpl-card img, #balcony .hpl-card video,
+        #partition .hpl-card img, #partition .hpl-card video,
+        #sajja .hpl-card img, #sajja .hpl-card video {
+            object-fit: contain; 
+            background: #000;
+        }
 
         .hpl-badge {
             position: absolute; top: 15px; right: 15px;
@@ -104,7 +117,6 @@
             z-index: 10;
         }
         
-        /* GENERAL BADGE STYLE */
         .chem-badge {
             position: absolute; top: 15px; right: 15px;
             background: #fff; color: #000; font-weight: bold;
@@ -473,6 +485,340 @@
             </div>
         </div>
         <p class="swipe-hint">Swipe for more Sagwan Designs <i class="fas fa-arrow-right"></i></p>
+    </section>
+
+    <section id="windows" class="section reveal" style="background: #0d0d0d;">
+        <div class="sec-header">
+            <span class="sec-sub">Modern & Durable</span>
+            <h2 class="sec-title">Aluminium Sliding Windows</h2>
+            <p style="color: var(--text-muted);">Smooth Gliding, Weatherproof & Elegant</p>
+        </div>
+
+        <div class="hpl-container">
+            
+            <div class="hpl-card">
+                <div class="hpl-badge" style="background: red; color: white;">Play Video <i class="fas fa-play"></i></div>
+                <video controls loop muted poster="win_thumb.jpg">
+                    <source src="win_vid1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+
+ <div class="hpl-card">
+                <div class="chem-badge">Window 1</div>
+                <img src="win1.jpg" alt="Window Design 1">
+            </div>
+
+            <div class="hpl-card">
+                <div class="hpl-badge" style="background: red; color: white;">Play Video <i class="fas fa-play"></i></div>
+                <video controls loop muted poster="win_thumb2.jpg">
+                    <source src="win_vid2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+           
+            <div class="hpl-card">
+                <div class="chem-badge">Window 2</div>
+                <img src="win2.jpg" alt="Window Design 2">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Window 3</div>
+                <img src="win3.jpg" alt="Window Design 3">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Window 4</div>
+                <img src="win4.jpg" alt="Window Design 4">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Window 5</div>
+                <img src="win5.jpg" alt="Window Design 5">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Window 6</div>
+                <img src="win6.jpg" alt="Window Design 6">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Window 7</div>
+                <img src="win7.jpg" alt="Window Design 7">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Window 8</div>
+                <img src="win8.jpg" alt="Window Design 8">
+            </div>
+
+        </div>
+        <p class="swipe-hint">Swipe for more Window Designs <i class="fas fa-arrow-right"></i></p>
+    </section>
+
+    <section id="domal" class="section reveal">
+        <div class="sec-header">
+            <span class="sec-sub">Premium Series</span>
+            <h2 class="sec-title">Domal Aluminium Windows</h2>
+            <p style="color: var(--text-muted);">Heavy Duty, High Performance & Luxurious</p>
+        </div>
+
+        <div class="hpl-container">
+            
+            <div class="hpl-card">
+                <div class="hpl-badge" style="background: red; color: white;">Play Video <i class="fas fa-play"></i></div>
+                <video controls loop muted poster="domal_thumb1.jpg">
+                    <source src="domal_vid1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+<div class="hpl-card">
+                <div class="chem-badge">Domal 1</div>
+                <img src="domal1.jpg" alt="Domal Window Design">
+            </div>
+
+
+
+            <div class="hpl-card">
+                <div class="hpl-badge" style="background: red; color: white;">Play Video <i class="fas fa-play"></i></div>
+                <video controls loop muted poster="domal_thumb2.jpg">
+                    <source src="domal_vid2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            
+        </div>
+        <p class="swipe-hint">Swipe for more Domal Designs <i class="fas fa-arrow-right"></i></p>
+    </section>
+
+    <section id="balcony" class="section reveal" style="background: #0d0d0d;">
+        <div class="sec-header">
+            <span class="sec-sub">Outdoor & View</span>
+            <h2 class="sec-title">Sliding Balcony Work</h2>
+            <p style="color: var(--text-muted);">Transform Your Balcony with Premium Glass Sliders</p>
+        </div>
+
+        <div class="hpl-container">
+            <div class="hpl-card">
+                <div class="hpl-badge" style="background: red; color: white;">Play Video <i class="fas fa-play"></i></div>
+                <video controls loop muted poster="balcony_thumb1.jpg">
+                    <source src="balcony_vid1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="hpl-card">
+                <div class="hpl-badge" style="background: red; color: white;">Play Video <i class="fas fa-play"></i></div>
+                <video controls loop muted poster="balcony_thumb2.jpg">
+                    <source src="balcony_vid2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="hpl-card">
+                <div class="hpl-badge" style="background: red; color: white;">Play Video <i class="fas fa-play"></i></div>
+                <video controls loop muted poster="balcony_thumb3.jpg">
+                    <source src="balcony_vid3.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+        <p class="swipe-hint">Swipe for more Balcony Designs <i class="fas fa-arrow-right"></i></p>
+    </section>
+
+    <section id="tower" class="section reveal">
+        <div class="sec-header">
+            <span class="sec-sub">Modern Elevation</span>
+            <h2 class="sec-title">Tower Glass Design</h2>
+            <p style="color: var(--text-muted);">Toughened Glass for Modern Building Exteriors</p>
+        </div>
+
+        <div class="hpl-container">
+            <div class="hpl-card">
+                <div class="chem-badge">Tower 1</div>
+                <img src="tower1.jpg" alt="Tower Glass 1">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Tower 2</div>
+                <img src="tower2.jpg" alt="Tower Glass 2">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Tower 3</div>
+                <img src="tower3.jpg" alt="Tower Glass 3">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Tower 4</div>
+                <img src="tower4.jpg" alt="Tower Glass 4">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Tower 5</div>
+                <img src="tower5.jpg" alt="Tower Glass 5">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Tower 6</div>
+                <img src="tower6.jpg" alt="Tower Glass 6">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Tower 7</div>
+                <img src="tower7.jpg" alt="Tower Glass 7">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Tower 8</div>
+                <img src="tower8.jpg" alt="Tower Glass 8">
+            </div>
+        </div>
+        <p class="swipe-hint">Swipe for more Tower Designs <i class="fas fa-arrow-right"></i></p>
+    </section>
+
+    <section id="partition" class="section reveal">
+        <div class="sec-header">
+            <span class="sec-sub">Corporate & Commercial</span>
+            <h2 class="sec-title">Aluminium Office Partitions</h2>
+            <p style="color: var(--text-muted);">Modern, Sound-Proof & Space Efficient</p>
+        </div>
+
+        <div class="hpl-container">
+            <div class="hpl-card">
+                <div class="hpl-badge" style="background: red; color: white;">Play Video <i class="fas fa-play"></i></div>
+                <video controls loop muted poster="partition_thumb1.jpg">
+                    <source src="partition_vid1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="hpl-card">
+                <div class="chem-badge">Partition 1</div>
+                <img src="partition1.jpg" alt="Office Partition 1">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Partition 2</div>
+                <img src="partition2.jpg" alt="Office Partition 2">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Partition 3</div>
+                <img src="partition3.jpg" alt="Office Partition 3">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Partition 4</div>
+                <img src="partition4.jpg" alt="Office Partition 4">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Partition 5</div>
+                <img src="partition5.jpg" alt="Office Partition 5">
+            </div>
+        </div>
+        <p class="swipe-hint">Swipe for more Office Designs <i class="fas fa-arrow-right"></i></p>
+    </section>
+
+    <section id="almadi" class="section reveal" style="background: #0d0d0d;">
+        <div class="sec-header">
+            <span class="sec-sub">Storage Solutions</span>
+            <h2 class="sec-title">Aluminium Almadi & Cupboards</h2>
+            <p style="color: var(--text-muted);">Modern, Rust-Proof & Spacious Storage</p>
+        </div>
+
+        <div class="hpl-container">
+            <div class="hpl-card">
+                <div class="hpl-badge" style="background: red; color: white;">Play Video <i class="fas fa-play"></i></div>
+                <video controls loop muted poster="almadi_thumb.jpg">
+                    <source src="almadi_vid1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="hpl-card">
+                <div class="chem-badge">Almadi 1</div>
+                <img src="almadi1.jpg" alt="Almadi Design 1">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Almadi 2</div>
+                <img src="almadi2.jpg" alt="Almadi Design 2">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Almadi 3</div>
+                <img src="almadi3.jpg" alt="Almadi Design 3">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Almadi 4</div>
+                <img src="almadi4.jpg" alt="Almadi Design 4">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Almadi 5</div>
+                <img src="almadi5.jpg" alt="Almadi Design 5">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Almadi 6</div>
+                <img src="almadi6.jpg" alt="Almadi Design 6">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Almadi 7</div>
+                <img src="almadi7.jpg" alt="Almadi Design 7">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Almadi 8</div>
+                <img src="almadi8.jpg" alt="Almadi Design 8">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Almadi 9</div>
+                <img src="almadi9.jpg" alt="Almadi Design 9">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Almadi 10</div>
+                <img src="almadi10.jpg" alt="Almadi Design 10">
+            </div>
+            <div class="hpl-card">
+                <div class="chem-badge">Almadi 11</div>
+                <img src="almadi11.jpg" alt="Almadi Design 11">
+            </div>
+        </div>
+        <p class="swipe-hint">Swipe for more Almadi Designs <i class="fas fa-arrow-right"></i></p>
+    </section>
+
+    <section id="sajja" class="section reveal">
+        <div class="sec-header">
+            <span class="sec-sub">Compact & Functional</span>
+            <h2 class="sec-title">Sajja & Ventilation Windows</h2>
+            <p style="color: var(--text-muted);">Perfect Ventilation Solutions for Lofts</p>
+        </div>
+
+        <div class="hpl-container">
+            
+            <div class="hpl-card">
+                <div class="hpl-badge" style="background: red; color: white;">Play Video <i class="fas fa-play"></i></div>
+                <video controls loop muted poster="sajja_thumb1.jpg">
+                    <source src="sajja_vid1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="hpl-card">
+                <div class="chem-badge">Sajja 1</div>
+                <img src="sajja1.jpg" alt="Sajja Window 1">
+            </div>
+
+            <div class="hpl-card">
+                <div class="hpl-badge" style="background: red; color: white;">Play Video <i class="fas fa-play"></i></div>
+                <video controls loop muted poster="sajja_thumb2.jpg">
+                    <source src="sajja_vid2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="hpl-card">
+                <div class="chem-badge">Sajja 2</div>
+                <img src="sajja2.jpg" alt="Sajja Window 2">
+            </div>
+
+            <div class="hpl-card">
+                <div class="hpl-badge" style="background: red; color: white;">Play Video <i class="fas fa-play"></i></div>
+                <video controls loop muted poster="sajja_thumb3.jpg">
+                    <source src="sajja_vid3.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="hpl-card">
+                <div class="chem-badge">Sajja 3</div>
+                <img src="sajja3.jpg" alt="Sajja Window 3">
+            </div>         
+        </div>
+        <p class="swipe-hint">Swipe for more Ventilation Designs <i class="fas fa-arrow-right"></i></p>
     </section>
 
     <section class="section reveal">
